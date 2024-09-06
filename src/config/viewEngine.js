@@ -1,11 +1,13 @@
-const path = require("path");
-const express = require("express");
+// const path = require("path");
+// const express = require("express");
+import path from "path";
+import express from "express";
 
 const configViewEngine = (app) => {
   app.set("views", path.join("./src", "views"));
   app.set("view engine", "ejs");
   app.use(express.static(path.join("./src", "public")));
-  console.log(__dirname);
 };
 
-module.exports = configViewEngine;
+// module.exports = configViewEngine;
+export default configViewEngine;

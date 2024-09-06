@@ -1,8 +1,12 @@
-require("dotenv").config();
-const express = require("express");
-const configViewEngine = require("./config/viewEngine");
-const webRoute = require("./routes/web");
-const mysql = require("mysql2");
+// const express = require("express");
+// const configViewEngine = require("./config/viewEngine");
+// const webRoute = require("./routes/web");
+// const { connection } = require("./config/database");
+import express from "express";
+import "dotenv/config";
+import configViewEngine from "./config/viewEngine.js";
+import webRoute from "./routes/web.js";
+import connection from "./config/database.js";
 
 const app = express();
 
@@ -12,17 +16,10 @@ const hostname = process.env.HOST_NAME;
 configViewEngine(app);
 app.use(webRoute);
 
-// Create the connection to database
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
-
+//connection
 connection.query(
-  'SELECT * FROM `Users` WHERE `name` = "Page" AND `age` > 45',
+  // 'SELECT * FROM `Users` WHERE `name` = "Page" AND `age` > 45',
+  "SELECT * FROM `Users`",
   function (err, results, fields) {
     console.log(results); // results contains rows returned by server
     console.log(fields); // fields contains extra meta data about results, if available

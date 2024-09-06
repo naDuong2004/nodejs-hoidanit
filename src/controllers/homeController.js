@@ -1,11 +1,11 @@
-const getHomePage = (req, res) => {
+export const getHomePage = (req, res) => {
   res.send("Hello World! My name is Duong");
 };
 
-const getAboutPage = (req, res) => {
+export const getAboutPage = (req, res) => {
   res.render("sample.ejs");
 };
-module.exports = {
-  getHomePage,
-  getAboutPage,
-};
+// module.exports = {
+//   getHomePage,
+//   getAboutPage,
+// };

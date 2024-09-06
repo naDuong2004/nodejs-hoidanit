@@ -1,10 +1,14 @@
-const express = require("express");
+// const express = require("express");
+// const { getHomePage, getAboutPage } = require("../controllers/homeController");
+import express from "express";
+
 const router = express.Router();
-const { getHomePage, getAboutPage } = require("../controllers/homeController");
+import { getHomePage, getAboutPage } from "../controllers/homeController.js";
 
 router.get("/", getHomePage);
 
 //render view
 router.get("/about", getAboutPage);
 
-module.exports = router;
+// module.exports = router;
+export default router;
