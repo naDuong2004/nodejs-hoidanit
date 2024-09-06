@@ -1,3 +1,5 @@
+import connection from "../config/database.js";
+
 export const getHomePage = (req, res) => {
   res.send("Hello World! My name is Duong");
 };
