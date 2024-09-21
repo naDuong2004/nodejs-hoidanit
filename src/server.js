@@ -6,9 +6,13 @@ import express from "express";
 import "dotenv/config";
 import configViewEngine from "./config/viewEngine.js";
 import webRoute from "./routes/web.js";
-import connection from "./config/database.js";
+import pool from "./config/database.js";
 
 const app = express();
+
+//config req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 8888;
 const hostname = process.env.HOST_NAME;
@@ -17,14 +21,13 @@ configViewEngine(app);
 app.use(webRoute);
 
 //connection
-connection.query(
-  // 'SELECT * FROM `Users` WHERE `name` = "Page" AND `age` > 45',
-  "SELECT * FROM `Users`",
-  function (err, results, fields) {
-    console.log(results); // results contains rows returned by server
-    console.log(fields); // fields contains extra meta data about results, if available
-  }
-);
+// try {
+//   // For pool initialization, see above
+//   const [rows, fields] = await pool.query("SELECT 1 FROM Users");
+//   // Connection is automatically released when query resolves
+// } catch (err) {
+//   console.log(err);
+// }
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`);

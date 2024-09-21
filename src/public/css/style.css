@@ -1,3 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .img {
   width: 500px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  width: 25%;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+/* fieldset {
+  margin: 0 auto;
+} */
+/* form {
+  margin: 0 auto;
+} */
+legend {
+  color: rgb(15, 12, 12);
+  padding: 5px 10px;
+  margin: 0 15px;
+  border-radius: 15px;
+}
+
+input {
+  margin: 5px;
+}
+
+.form {
+  padding: 20px;
+
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.editUserBtn {
+  border: 1px solid black;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 13px;
+  color: black;
+}
+
+.d-none {
+  display: none;
 }

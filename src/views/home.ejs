@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    tr:hover {
+      background-color: #ccc;
+    }
+  </style>
+  <body>
+    <div class="topnav">
+      <a class="active" href="/">Home</a>
+      <a href="/create-page">Create Page</a>
+      <a href="/contact">Contact</a>
+      <a href="/about">About</a>
+    </div>
+
+    <div class="table-Conainer">
+      <div class="list-user">
+        List User
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Actions</th>
+          </tr>
+          <% listUsers.forEach(function(user){ %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.name %></td>
+            <td><%= user.city %></td>
+            <td>
+              <a class="editUserBtn" href="/edit-user/<%= user.id %>">Edit</a>
+              <form action="/delete-user/<%= user.id %>" method="POST">
+                <!-- <button type="button">Delete</button> -->
+                <button>Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
